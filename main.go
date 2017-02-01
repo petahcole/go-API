@@ -84,9 +84,11 @@ func main() {
   })
 
   r.POST("/edit/:id", func(c *gin.Context)  {
+    newTitle := c.PostForm("title")
     author := c.PostForm("author")
     genre := c.PostForm("genre")
     update := bson.M{
+      "title": newTitle,
       "author": author,
       "genre": genre,
     }
